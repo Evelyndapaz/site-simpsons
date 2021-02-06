@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os Simpsons</title>
+    <style>
+        body {
+            background-color: #ffff47;
+            text-align: center;
+            font-family: Arial;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Site dos Simpsons</h2>
+    <!--inputs servem para inserir dados-->
+    Login:<input id="in_login"> <br><br>
+    Senha:<input id="in_senha"> <br><br>
+
+    <!--select para selecionar a opção de perfil-->
+    Perfil
+    <select id="in_perfil">
+        <option value="0">- Selecione uma opção -</option>
+        <option value="Mãe">Mãe</option>
+        <option value="Pai">Pai</option>
+        <option value="Filha">Filha</option>
+        <option value="Filho">Filho</option>
+    </select><br><br>
+
+    <button id="btn_entrar" onclick="entrar()">Entrar</button><br><br>
+    <button id="btn_limpar" onclick="limpar()">Limpar</button><br><br>
+
+    <div id="div_resposta" style="color: blue;"></div><br>
+
+    <!--local onde aparecerá a foto-->
+    <img id="img_ftperfil" style="height: 300px;">
+
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        //variaveis que pegam os valores inseridos nos inputs do html
+        var login = in_login.value;
+        var senha = in_senha.value;
+        var perfil = in_perfil.value;
+
+        /*se o nome for igual a x E a senha for igual a y E o perfil for igual a z
+        então será exibida uma mensagem e uma foto de perfil*/
+        //Dentro do if estão os respectivos login, senha e perfil válidos
+        if (login == "Marge Simpson" && senha == 1010 && perfil == "Mãe") {
+            div_resposta.innerHTML = `Olá, ${login}! Você entrou com o perfil de ${perfil}`;
+            img_ftperfil.src = 'imagens/marge.jpg';
+
+        } else if (login == "Homer Simpson" && senha == 2020 && perfil == "Pai") {
+            div_resposta.innerHTML = `Olá, ${login}! Você entrou com o perfil de ${perfil}`;
+            img_ftperfil.src = 'imagens/homer.jpg';
+
+        } else if (login == "Lisa Simpson" && senha == 3030 && perfil == "Filha") {
+            div_resposta.innerHTML = `Olá, ${login}! Você entrou com o perfil de ${perfil}`;
+            img_ftperfil.src = 'imagens/lisa.jpg';
+
+        } else if (login == "Bart Simpson" && senha == 4040 && perfil == "Filho") {
+            div_resposta.innerHTML = `Olá, ${login}! Você entrou com o perfil de ${perfil}`;
+            img_ftperfil.src = 'imagens/bart.jpg';
+
+            //senão forem válidos os dados, começa a subtração de tentaivas   
+        } else {
+            div_resposta.innerHTML = `Dados incorretos!`;
+        }
+
+    }
+
+    //função para limpar os campos de login e senha
+    function limpar() {
+        in_login.value = '';
+        in_senha.value = '';
+        in_perfil.value = '0';
+        img_ftperfil.src = '';
+        div_resposta.innerHTML = '';
+    }
+</script>
